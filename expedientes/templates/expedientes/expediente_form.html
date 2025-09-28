@@ -1,0 +1,15 @@
+<h1>Nuevo Expediente</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ documento_form.as_p }}
+    <button type="submit">Guardar</button>
+</form>
+
+{% if documento_form.errors %}
+    <ul style="color: red;">
+        {% for error in documento_form.errors.values %}
+            <li>{{ error }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

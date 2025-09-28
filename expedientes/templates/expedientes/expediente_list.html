@@ -1,0 +1,8 @@
+<h1>Expedientes</h1>
+<ul>
+    {% for expediente in object_list %}
+        <li><a href="{% url 'expediente_detail' expediente.pk %}">{{ expediente.nombre }}</a></li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'expediente_create' %}">Crear nuevo expediente</a>

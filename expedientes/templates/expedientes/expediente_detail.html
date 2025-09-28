@@ -1,0 +1,13 @@
+<h1>{{ object.nombre }}</h1>
+<p>{{ object.descripcion }}</p>
+
+<h3>Documentos:</h3>
+<ul>
+    {% for doc in object.documentos.all %}
+        <li><a href="{{ doc.archivo.url }}" target="_blank">{{ doc.archivo.name }}</a></li>
+    {% empty %}
+        <li>No hay documentos cargados.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'expediente_list' %}">Volver a la lista</a>
